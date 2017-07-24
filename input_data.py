@@ -2,8 +2,8 @@
 from __future__ import print_function
 import gzip
 import os
+# import urllib.request
 import urllib
-
 import numpy
 
 SOURCE_URL = 'http://yann.lecun.com/exdb/mnist/'
@@ -153,7 +153,7 @@ class SemiDataSet(object):
         n_from_each_class = n_labeled / n_classes
         i_labeled = []
         for c in range(n_classes):
-            i = indices[y==c][:n_from_each_class]
+            i = indices[y==c][:int(n_from_each_class)]
             i_labeled += list(i)
         l_images = images[i_labeled]
         l_labels = labels[i_labeled]
